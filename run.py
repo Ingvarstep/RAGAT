@@ -380,7 +380,7 @@ class Runner(object):
                 results['mr'] = torch.sum(ranks).item() + results.get('mr', 0.0)
                 results['mrr'] = torch.sum(1.0 / ranks).item() + results.get('mrr', 0.0)
                 for k in range(10):
-                    results['hits@{}'.format(k + 1)] = torch.numel(ranks[ranks <= (k + 1)]) + results.get(
+                    results['hits@{}'.format(k + 1)] = torch.numel(ranks[ranks <= (k)]) + results.get(
                         'hits@{}'.format(k + 1), 0.0)
 
                 # if step % 100 == 0:
