@@ -69,6 +69,7 @@ class Runner(object):
         self.data = dict(self.data)
         # self.sr2o: train origin edges and reverse edges
         self.sr2o = {k: list(v) for k, v in sr2o.items()}
+        sr2o = ddict(set)
         for split in ['test', 'valid']:
             for sub, rel, obj in self.data[split]:
                 sr2o[(sub, rel)].add(obj)
